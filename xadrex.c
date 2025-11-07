@@ -7,7 +7,7 @@ void moverCavalo(char direcao1[], char direcao2[], int casas1, int casas2)
 	if (casas1 > 0 && casas1 < 3)
 	{
 		int i;
-		for ( i = 0; i <= casas1; i++)
+		for (i = 0; i <= casas1; i++)
 		{
 			printf("Movendo Cavalo para %s\n", direcao1);
 
@@ -18,7 +18,6 @@ void moverCavalo(char direcao1[], char direcao2[], int casas1, int casas2)
 			}
 			break;
 		}
-
 	}
 	else
 	{
@@ -38,13 +37,13 @@ void movimentoBispo(int option, int casas)
 	switch (option)
 	{
 	case 1: // Diagonal Esquerda Cima
-	// Utilize loops aninhados para o bispo, sendo o loop mais externo o vertical, e o mais interno o horizontal.
-	// o loop externo é o ultimo movimento do bispo, e o loop interno é o primeiro movimento do bispo.
-	printf("Movendo Bispo para Diagonal Esquerda Cima , %d casa(s)\n ");
-		for (int i = 0; i < casas; i++)
+		// Utilize loops aninhados para o bispo, sendo o loop mais externo o vertical, e o mais interno o horizontal.
+		// o loop externo é o ultimo movimento do bispo, e o loop interno é o primeiro movimento do bispo.
+		printf("Movendo Bispo para Diagonal Esquerda Cima");
+		for (int i = 1; i <= casas; i++)
 		{
 			printf("Movendo Bispo para Cima , %d casa(s)\n ", i);
-			for (int j = 0; j < casas; j++)
+			for (int j = 1; j <= casas; j++)
 			{
 				printf("Movendo Bispo para Esquerda , %d casa(s)\n ", j);
 			}
@@ -52,69 +51,68 @@ void movimentoBispo(int option, int casas)
 		break;
 
 	case 2: // Diagonal Esquerda Baixo
-	printf("Movendo Bispo para Diagonal Esquerda Baixo , %d casa(s)\n ");
+		printf("Movendo Bispo para Diagonal Esquerda Baixo");
 
-		for (int i = 0; i < casas; i++)
+		for (int i = 1; i <= casas; i++)
 		{
 			printf("Movendo Bispo para Baixo , %d casa(s)\n ", i);
-			for (int j = 0; j < casas; j++)
+			for (int j = 1; j <= casas; j++)
 			{
 				printf("Movendo Bispo para Esquerda , %d casa(s)\n ", j);
-
 			}
 		}
 		break;
 	case 3: // Diagonal Direita Cima
-		printf("Movendo Bispo para Diagonal Direita Cima , %d casa(s)\n ");
-		for (int i = 0; i < casas; i++)
+		printf("Movendo Bispo para Diagonal Direita Cima");
+		for (int i = 1; i <= casas; i++)
 		{
 			printf("Movendo Bispo para Cima , %d casa(s)\n ", i);
-			for (int j = 0; j < casas; j++)
-			{
-				printf("Movendo Bispo para Direita , %d casa(s)\n ", j);
-			}	
-		}
-		break;
-	case 4: // Diagonal Direita Baixo
-		printf("Movendo Bispo para Diagonal Direita Baixo , %d casa(s)\n ");
-		for (int i = 0; i < casas; i++)
-		{
-			printf("Movendo Bispo para Baixo , %d casa(s)\n ", i);
-			for (int j = 0; j < casas; j++)
+			for (int j = 1; j <= casas; j++)
 			{
 				printf("Movendo Bispo para Direita , %d casa(s)\n ", j);
 			}
 		}
 		break;
-	
+	case 4: // Diagonal Direita Baixo
+		printf("Movendo Bispo para Diagonal Direita Baixo , %d casa(s)\n ");
+		for (int i = 1; i <= casas; i++)
+		{
+			printf("Movendo Bispo para Baixo , %d casa(s)\n ", i);
+			for (int j = 1; j <= casas; j++)
+			{
+				printf("Movendo Bispo para Direita , %d casa(s)\n ", j);
+			}
+		}
+		break;
+
 	default:
 		break;
 	}
 }
 
-void movimentoTorre(char direcao[], int casas)
+void movimentoTorre(char direcaoTorre[], int casasTorre)
 {
-	for (int i = 0; i < casas; i++)
+	for (int i = 1; i <= casasTorre; i++)
 	{
-		printf("Movendo Torre para %s , %d casa(s)\n ", direcao, i);
+		printf("Movendo Torre para %s , %d casa(s)\n ", direcaoTorre, i);
 	}
 }
 
-void movimentoRainha(char direcao[], int casas)
+void movimentoRainha(char direcao[], int casasTorre)
 {
-	for (int i = 0; i < casas; i++)
+	for (int i = 1; i <= casasTorre; i++)
 	{
 		printf("Movendo Rainha para %s , %d casa(s)\n ", direcao, i);
 	}
 }
 
-//entrada principal do programa
+// entrada principal do programa
 
 int main()
 {
 	int peca;
 
-	int i = 0;
+	int i = 1;
 
 	printf("Digite qual peça voce quer mover\n");
 	printf("1-Bispo\n2-Torre\n3-Cavalo\n4-Rainha\n5-Rei\n6-Peão\n");
@@ -129,32 +127,16 @@ int main()
 		int option;
 		scanf("%d", &option);
 
-		switch (option)
-		{
-		case 1:
-			printf(option, "Diagonal Esquerda Cima");
-			break;
-		case 2:
-			printf(option, "Diagonal Esquerda Baixo");
-			break;
-		case 3:
-			printf(option, "Diagonal Direita Cima");
-			break;
-		case 4:
-			printf(option, "Diagonal Direita Baixo");
-			break;
-		default:
-			printf("Opcao invalida. Tente novamente.\n");
-			return 0;
-		}
-
 		int casas;
 		printf("Quantas casas deseja mover:\n");
 		scanf("%d", &casas);
-		if (casas < 1) {
-    	printf("Movimento inválido para o Bispo. Tente novamente.\n");
-		} else {
-	    movimentoBispo(option, casas);
+		if (casas < 1)
+		{
+			printf("Movimento inválido para o Bispo. Tente novamente.\n");
+		}
+		else
+		{
+			movimentoBispo(option, casas);
 		}
 
 		break;
@@ -168,10 +150,13 @@ int main()
 		int casasTorre;
 		printf("Quantas casas deseja mover:\n");
 		scanf("%d", &casasTorre);
-		if (casasTorre < 0) {
-    	printf("Número inválido, digite novamente > 0\n");
-		} else {
-    	movimentoTorre(direcaoTorre, casasTorre);
+		if (casasTorre < 0)
+		{
+			printf("Número inválido, digite novamente > 0\n");
+		}
+		else
+		{
+			movimentoTorre(direcaoTorre, casasTorre);
 		};
 
 		break;
@@ -213,13 +198,15 @@ int main()
 		int casasRainha;
 		printf("Quantas casas deseja mover:\n");
 		scanf("%d", &casasRainha);
-		if (casasRainha < 1) {
-    printf("Movimento inválido para a Rainha. Tente novamente.\n");
-	} else {
-    movimentoRainha(direcaoRainha, casasRainha);
-    movimentoTorre(direcaoRainha, casasRainha);
-	}
-	break;
+		if (casasRainha < 1)
+		{
+			printf("Movimento inválido para a Rainha. Tente novamente.\n");
+		}
+		else
+		{
+			movimentoRainha(direcaoRainha, casasRainha);
+		}
+		break;
 
 	case 5: // Lógica para o movimento do Rei
 		printf("Movimento do Rei:\n");
